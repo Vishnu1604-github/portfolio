@@ -37,6 +37,137 @@ header {
     background-color: var(--netflix-black);
     padding: 20px 40px;
     position: fixed;
+
+/* Hero Section with Video Background */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--netflix-white);
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -2;
+    object-fit: cover;
+}
+
+.hero-content {
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--netflix-red);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--netflix-white);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--netflix-red);
+    color: var(--netflix-white);
+}
+
+.btn-primary:hover {
+    background-color: #c70812;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--netflix-white);
+    border: 2px solid var(--netflix-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--netflix-white);
+    color: var(--netflix-black);
+    transform: translateY(-3px);
+}
+
+/* Animation Classes */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -316,6 +447,145 @@ footer {
     height: 400px;
     background: url('https://source.unsplash.com/random/400x600?person') no-repeat center/cover;
     border-radius: 8px;
+
+/* Skills Progress Bars */
+.skills-section {
+    padding: 60px 40px;
+    background-color: var(--netflix-dark-gray);
+}
+
+.skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-progress {
+    margin-bottom: 25px;
+}
+
+.skill-name {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--netflix-white);
+}
+
+.progress {
+    height: 8px;
+    width: 100%;
+    background-color: var(--netflix-light-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0; /* Initially 0, will be animated with JS */
+    background-color: var(--netflix-red);
+    border-radius: 4px;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    height: 100%;
+    width: 2px;
+    background-color: var(--netflix-red);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 80px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 44px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--netflix-red);
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: var(--netflix-medium-gray);
+    border-radius: 8px;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--netflix-white);
+}
+
+.timeline-content h4 {
+    font-size: 1.1rem;
+    color: var(--netflix-text);
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    color: var(--netflix-red);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.experience-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.experience-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.experience-list li::before {
+    content: '→';
+    position: absolute;
+    left: -5px;
+    color: var(--netflix-red);
+}
+
+/* Enhanced sections for interactivity */
+.project-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    margin: 0 5px 15px;
+    background-color: var(--netflix-medium-gray);
+    border: none;
+    border-radius: 4px;
+    color: var(--netflix-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--netflix-red);
+}
+
 }
 
 .about-text {
