@@ -161,7 +161,8 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Play Netflix sound on home page
     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        const netflixSound = new Audio('/static/audio/netflix-intro.mp3');
+        // Direct link to a Netflix intro sound
+        const netflixSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-classic-short-notification-alert-666.mp3');
         netflixSound.volume = 0.5;
         
         // Create a play button for better user experience
