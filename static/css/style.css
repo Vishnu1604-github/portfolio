@@ -90,7 +90,7 @@ main {
 .hero {
     height: 90vh;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-                url('https://source.unsplash.com/random/1920x1080?data,technology') no-repeat center center/cover;
+                url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920&h=1080&auto=format&fit=crop') no-repeat center center/cover;
     display: flex;
     align-items: center;
     padding: 0 40px;
@@ -410,7 +410,7 @@ footer {
 .profile-image {
     width: 100%;
     height: 400px;
-    background: url('https://source.unsplash.com/random/400x600?person') no-repeat center/cover;
+    background: url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=400&h=600&auto=format&fit=crop') no-repeat center/cover;
     border-radius: 8px;
 }
 
