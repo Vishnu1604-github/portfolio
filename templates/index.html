@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu's Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VISHNU VARDHAN MANDULA</div>
+            <ul>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-business-document-18671-large.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="name-container">
+                    <h1>Vishnu Vardhan</h1>
+                    <h1 class="last-name">Mandula</h1>
+                </div>
+                <h2>Data Engineer</h2>
+                <p class="tagline">Building data solutions that transform businesses</p>
+                <div class="btn-group">
+                    <a href="/about" class="btn btn-primary">Learn More</a>
+                    <a href="/contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2>Featured Projects</h2>
+            <div class="carousel">
+                <div class="card interactive-card" data-modal="project1">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&h=600&auto=format&fit=crop&crop=edges')"></div>
+                    <div class="card-content">
+                        <h3>Data Pipeline Architecture</h3>
+                        <p>Built scalable ETL processes using modern tools</p>
+                    </div>
+                </div>
+                <div class="card interactive-card" data-modal="project2">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=600&h=600&auto=format&fit=crop&crop=edges')"></div>
+                    <div class="card-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Interactive data visualization for business insights</p>
+                    </div>
+                </div>
+                <div class="card interactive-card" data-modal="project3">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&h=600&auto=format&fit=crop&crop=edges')"></div>
+                    <div class="card-content">
+                        <h3>Cloud Migration</h3>
+                        <p>Migrated on-premise systems to cloud architecture</p>
+                    </div>
+                </div>
+                <div class="card interactive-card" data-modal="project4">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=600&auto=format&fit=crop&crop=edges')"></div>
+                    <div class="card-content">
+                        <h3>Big Data Platform</h3>
+                        <p>Implemented data lake solutions for large-scale analytics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals -->
+        <div id="project1" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Data Pipeline Architecture</h2>
+                <p>Designed and implemented a comprehensive data pipeline architecture using Apache Airflow, Python, and AWS services. This solution automated daily ETL processes, reducing manual effort by 85% and improving data delivery times by 40%.</p>
+                <h3>Technologies Used:</h3>
+                <div class="project-tags">
+                    <span>Apache Airflow</span>
+                    <span>Python</span>
+                    <span>AWS S3</span>
+                    <span>AWS Glue</span>
+                    <span>Redshift</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+
+        <div id="project2" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Analytics Dashboard</h2>
+                <p>Created interactive business intelligence dashboards that transformed raw data into actionable insights. These dashboards are used by executives to make data-driven decisions, increasing operational efficiency by 25%.</p>
+                <h3>Technologies Used:</h3>
+                <div class="project-tags">
+                    <span>Tableau</span>
+                    <span>Power BI</span>
+                    <span>SQL</span>
+                    <span>DAX</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+
+        <div id="project3" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Cloud Migration</h2>
+                <p>Led a team to migrate legacy on-premise data warehouse to a modern cloud-based solution. This migration improved query performance by 60% and reduced infrastructure costs by 30%.</p>
+                <h3>Technologies Used:</h3>
+                <div class="project-tags">
+                    <span>AWS</span>
+                    <span>Snowflake</span>
+                    <span>Terraform</span>
+                    <span>Python</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+
+        <div id="project4" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Big Data Platform</h2>
+                <p>Designed and implemented a scalable data lake solution handling petabytes of data. This platform enabled data scientists to access and analyze diverse datasets, accelerating ML model development cycles by 50%.</p>
+                <h3>Technologies Used:</h3>
+                <div class="project-tags">
+                    <span>Hadoop</span>
+                    <span>Spark</span>
+                    <span>Delta Lake</span>
+                    <span>Databricks</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+
+        <section class="skills">
+            <h2>Technical Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data Engineering</h3>
+                    <p>SQL, ETL, Data Warehousing, Snowflake, Redshift</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Programming</h3>
+                    <p>Python, Java, Scala, SQL, PySpark</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud</h3>
+                    <p>AWS (S3, Glue, Lambda, EMR), Azure, GCP</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Analytics</h3>
+                    <p>Tableau, Power BI, Looker, Data Visualization</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Big Data</h3>
+                    <p>Hadoop, Spark, Kafka, Airflow, Databricks</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>Data Modeling</h3>
+                    <p>Star Schema, Snowflake Schema, Data Vault</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2023 Vishnu Vardhan Mandula. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
