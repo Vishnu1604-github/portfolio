@@ -147,3 +147,57 @@ function filterProjects(category) {
         }
     });
 }
+// Navigation scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Modal functionality for project cards
+document.addEventListener('DOMContentLoaded', function() {
+    // Play Netflix sound on home page
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        const netflixSound = new Audio('https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3');
+        netflixSound.volume = 0.5;
+        netflixSound.play().catch(error => {
+            console.log('Audio playback failed:', error);
+        });
+    }
+    
+    // Project modals
+    const modalTriggers = document.querySelectorAll('.interactive-card');
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const modalId = trigger.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+    
+    window.addEventListener('click', (e) => {
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+});
