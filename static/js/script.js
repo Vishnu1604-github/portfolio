@@ -164,23 +164,48 @@ document.addEventListener('DOMContentLoaded', function() {
         const netflixSound = new Audio('/static/audio/netflix-intro.mp3');
         netflixSound.volume = 0.5;
         
-        // Add user interaction to trigger audio (browser policy)
-        const playSound = () => {
-            netflixSound.play().catch(error => {
-                console.log('Audio playback failed:', error);
-            });
-            document.removeEventListener('click', playSound);
-        };
+        // Create a play button for better user experience
+        const soundButton = document.createElement('button');
+        soundButton.textContent = 'Play Netflix Intro';
+        soundButton.className = 'netflix-sound-btn';
+        soundButton.style.position = 'fixed';
+        soundButton.style.bottom = '20px';
+        soundButton.style.right = '20px';
+        soundButton.style.zIndex = '1000';
+        soundButton.style.backgroundColor = '#E50914';
+        soundButton.style.color = 'white';
+        soundButton.style.border = 'none';
+        soundButton.style.padding = '10px 15px';
+        soundButton.style.borderRadius = '4px';
+        soundButton.style.cursor = 'pointer';
         
-        // Wait for user interaction to play sound (needed for autoplay policies)
-        document.addEventListener('click', playSound);
+        soundButton.addEventListener('click', () => {
+            netflixSound.play()
+                .then(() => {
+                    console.log('Audio playing successfully');
+                    setTimeout(() => {
+                        soundButton.style.display = 'none';
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.log('Audio playback failed:', error);
+                });
+        });
         
-        // Also try to play it automatically (will work if allowed by browser)
-        setTimeout(() => {
+        document.body.appendChild(soundButton);
+        
+        // Try to play automatically if user has already interacted with the page
+        if (document.documentElement.hasAttribute('data-user-interacted')) {
             netflixSound.play().catch(error => {
-                console.log('Audio needs user interaction to play:', error);
+                console.log('Auto play failed, waiting for button click:', error);
             });
-        }, 1000);
+        }
+        
+        // Mark that user has interacted with the page for future visits
+        document.addEventListener('click', function setInteracted() {
+            document.documentElement.setAttribute('data-user-interacted', 'true');
+            document.removeEventListener('click', setInteracted);
+        });
     }
     
     // Project modals
