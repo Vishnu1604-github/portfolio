@@ -1,93 +1,149 @@
 
-// Function to handle navigation bar background on scroll
-document.addEventListener('DOMContentLoaded', function() {
+// Header scroll effect
+window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all interactive cards
+    const interactiveCards = document.querySelectorAll('.interactive-card');
     
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    // Get all modals
+    const modals = document.querySelectorAll('.modal');
+    
+    // Get all close buttons
+    const closeButtons = document.querySelectorAll('.close-modal');
+    
+    // Add click event to each interactive card
+    interactiveCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const modalId = this.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        });
+    });
+    
+    // Add click event to each close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+    });
+    
+    // Close modal when clicking outside of modal content
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        });
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
         }
     });
-    
-    // Card Hover Effects
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-    });
-    
-    // Project item hover effects
-    const projectItems = document.querySelectorAll('.project-item');
-    projectItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            const projectImage = this.querySelector('.project-image');
-            if (projectImage) {
-                projectImage.style.transform = 'scale(1.05)';
-                projectImage.style.transition = 'transform 0.5s ease';
-            }
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            const projectImage = this.querySelector('.project-image');
-            if (projectImage) {
-                projectImage.style.transform = 'scale(1)';
-            }
-        });
-    });
-    
+
     // Contact form submission
-    const contactForm = document.querySelector('.contact-form form');
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const subjectInput = document.getElementById('subject');
-            const messageInput = document.getElementById('message');
-            
-            // Simple validation
-            if (nameInput.value.trim() === '' || 
-                emailInput.value.trim() === '' || 
-                subjectInput.value.trim() === '' || 
-                messageInput.value.trim() === '') {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Here you would normally send the form data to a server
-            // For this demo, we'll just show a success message
-            alert('Thanks for your message! I\'ll get back to you soon.');
-            contactForm.reset();
+            // Simulate form submission
+            setTimeout(() => {
+                // Reset form
+                contactForm.reset();
+                
+                // Show success modal
+                const successModal = document.getElementById('successModal');
+                if (successModal) {
+                    successModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            }, 1000);
         });
     }
+
+    // Skill progress animation
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    // Create intersection observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    // Observe each skill item
+    skillItems.forEach(item => {
+        observer.observe(item);
+    });
+    
+    // Portfolio card hover effect
+    const portfolioCards = document.querySelectorAll('.card');
+    
+    portfolioCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('.card-content').style.transform = 'translateY(-10px)';
+            this.querySelector('.card-content').style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('.card-content').style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Timeline animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-50px)';
+        item.style.transition = `opacity 0.5s ease, transform 0.5s ease ${index * 0.2}s`;
+        timelineObserver.observe(item);
+    });
 });
 
-// Add dynamic typing effect to the tagline on the home page
-document.addEventListener('DOMContentLoaded', function() {
-    const tagline = document.querySelector('.tagline');
-    if (tagline) {
-        const text = tagline.textContent;
-        tagline.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                tagline.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
+// Projects filtering (if needed in the future)
+function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-item');
+    
+    projects.forEach(project => {
+        if (category === 'all' || project.classList.contains(category)) {
+            project.style.display = 'grid';
+        } else {
+            project.style.display = 'none';
         }
-        
-        typeWriter();
-    }
-});
+    });
+}

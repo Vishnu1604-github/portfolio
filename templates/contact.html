@@ -7,7 +7,7 @@
     <title>Contact - Vishnu's Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -24,41 +24,59 @@
 
     <main>
         <section class="contact-hero">
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-giving-a-business-presentation-to-a-group-18704-large.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
             <div class="contact-content">
                 <h1>Get In Touch</h1>
-                <p>Have a project in mind or want to discuss opportunities? Reach out to me!</p>
+                <p>Let's discuss how I can help with your data engineering needs</p>
             </div>
         </section>
 
         <section class="contact-grid">
             <div class="contact-info">
-                <div class="contact-item">
+                <div class="contact-info-item">
                     <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>vishnu@example.com</p>
+                    <div>
+                        <h3>Email</h3>
+                        <p>vishnu@example.com</p>
+                    </div>
                 </div>
-                <div class="contact-item">
+                <div class="contact-info-item">
                     <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>+1 (123) 456-7890</p>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
                 </div>
-                <div class="contact-item">
+                <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>San Francisco, CA</p>
+                    <div>
+                        <h3>Location</h3>
+                        <p>San Francisco, CA</p>
+                    </div>
                 </div>
-                <div class="contact-social">
-                    <h3>Social Media</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                <div class="contact-info-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="#" style="color: var(--netflix-red);">linkedin.com/in/vishnu</a></p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p><a href="#" style="color: var(--netflix-red);">github.com/vishnu</a></p>
                     </div>
                 </div>
             </div>
             <div class="contact-form">
-                <h2>Send a Message</h2>
-                <form>
+                <h2>Send Me a Message</h2>
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -73,12 +91,22 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </section>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Message Sent!</h2>
+                <p>Thank you for contacting me. I'll get back to you as soon as possible.</p>
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--netflix-red); display: block; text-align: center; margin: 20px 0;"></i>
+            </div>
+        </div>
     </main>
 
     <footer>

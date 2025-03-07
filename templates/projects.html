@@ -7,7 +7,7 @@
     <title>Projects - Vishnu's Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -31,7 +31,7 @@
         </section>
 
         <section class="projects-grid">
-            <div class="project-item">
+            <div class="project-item interactive-card" data-modal="projectDetail1">
                 <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?data')"></div>
                 <div class="project-details">
                     <h2>Enterprise Data Lake</h2>
@@ -39,68 +39,216 @@
                         <span>AWS</span>
                         <span>Spark</span>
                         <span>Delta Lake</span>
+                        <span>Python</span>
                     </div>
                     <p>Designed and implemented a scalable data lake solution that processes over 10TB of data daily, enabling advanced analytics and machine learning capabilities.</p>
-                    <a href="#" class="btn btn-primary">View Project</a>
+                    <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>
             
-            <div class="project-item">
-                <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?dashboard')"></div>
+            <div class="project-item interactive-card" data-modal="projectDetail2">
+                <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?analytics')"></div>
                 <div class="project-details">
-                    <h2>Real-time Analytics Dashboard</h2>
+                    <h2>Real-time Analytics Platform</h2>
                     <div class="project-tags">
                         <span>Kafka</span>
+                        <span>Spark Streaming</span>
                         <span>Elasticsearch</span>
-                        <span>Grafana</span>
+                        <span>Kibana</span>
                     </div>
-                    <p>Built a real-time analytics system to monitor customer interactions, providing stakeholders with immediate insights for business decisions.</p>
-                    <a href="#" class="btn btn-primary">View Project</a>
+                    <p>Built a real-time analytics platform that ingests and processes streaming data from IoT devices, providing instant insights through interactive dashboards.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>
             
-            <div class="project-item">
+            <div class="project-item interactive-card" data-modal="projectDetail3">
                 <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?cloud')"></div>
                 <div class="project-details">
-                    <h2>Cloud Migration Strategy</h2>
+                    <h2>Data Warehouse Migration</h2>
                     <div class="project-tags">
-                        <span>Azure</span>
-                        <span>Terraform</span>
-                        <span>Databricks</span>
-                    </div>
-                    <p>Led the migration of legacy data infrastructure to Azure cloud, resulting in 30% cost reduction and improved performance.</p>
-                    <a href="#" class="btn btn-primary">View Project</a>
-                </div>
-            </div>
-            
-            <div class="project-item">
-                <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?machine+learning')"></div>
-                <div class="project-details">
-                    <h2>Machine Learning Pipeline</h2>
-                    <div class="project-tags">
+                        <span>Snowflake</span>
+                        <span>AWS</span>
                         <span>Python</span>
-                        <span>MLflow</span>
-                        <span>Kubernetes</span>
+                        <span>dbt</span>
                     </div>
-                    <p>Developed automated ML pipelines to train and deploy recommendation models, increasing customer engagement by 25%.</p>
-                    <a href="#" class="btn btn-primary">View Project</a>
+                    <p>Led the migration of a legacy on-premise data warehouse to Snowflake, resulting in a 60% improvement in query performance and a 30% reduction in operational costs.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>
             
-            <div class="project-item">
-                <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?iot')"></div>
+            <div class="project-item interactive-card" data-modal="projectDetail4">
+                <div class="project-image" style="background-image: url('https://source.unsplash.com/random/800x600?automation')"></div>
                 <div class="project-details">
-                    <h2>IoT Data Processing</h2>
+                    <h2>Automated ETL Pipeline</h2>
                     <div class="project-tags">
-                        <span>MQTT</span>
-                        <span>Apache Flink</span>
-                        <span>TimescaleDB</span>
+                        <span>Airflow</span>
+                        <span>Python</span>
+                        <span>AWS Glue</span>
+                        <span>S3</span>
                     </div>
-                    <p>Created a scalable system to ingest and process IoT sensor data from manufacturing equipment, enabling predictive maintenance.</p>
-                    <a href="#" class="btn btn-primary">View Project</a>
+                    <p>Developed an automated ETL pipeline using Apache Airflow that extracts data from multiple sources, transforms it according to business rules, and loads it into a data warehouse.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>
         </section>
+
+        <!-- Project Detail Modals -->
+        <div id="projectDetail1" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Enterprise Data Lake</h2>
+                <img src="https://source.unsplash.com/random/1200x600?data" alt="Data Lake Architecture" style="width: 100%; margin-bottom: 20px; border-radius: 8px;">
+                <h3>Challenge</h3>
+                <p>The client was struggling with siloed data sources and inefficient data processing methods that couldn't handle their growing data volume. They needed a scalable solution to centralize their data and enable advanced analytics.</p>
+                
+                <h3>Solution</h3>
+                <p>I designed and implemented a comprehensive data lake architecture on AWS using the following components:</p>
+                <ul>
+                    <li>S3-based storage layers (raw, cleansed, curated)</li>
+                    <li>Apache Spark for large-scale data processing</li>
+                    <li>Delta Lake for ACID transactions and time travel capabilities</li>
+                    <li>AWS Glue for metadata management</li>
+                    <li>Custom Python libraries for data quality checks and transformations</li>
+                </ul>
+                
+                <h3>Results</h3>
+                <p>The solution successfully processes over 10TB of data daily and has enabled:</p>
+                <ul>
+                    <li>70% reduction in data processing time</li>
+                    <li>Ability to run complex ML models on consolidated data</li>
+                    <li>Self-service analytics for business users</li>
+                    <li>Data lineage and governance controls</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <div class="project-tags">
+                    <span>AWS S3</span>
+                    <span>AWS Glue</span>
+                    <span>Apache Spark</span>
+                    <span>Delta Lake</span>
+                    <span>Python</span>
+                    <span>Athena</span>
+                    <span>IAM</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projectDetail2" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Real-time Analytics Platform</h2>
+                <img src="https://source.unsplash.com/random/1200x600?analytics" alt="Real-time Analytics Dashboard" style="width: 100%; margin-bottom: 20px; border-radius: 8px;">
+                <h3>Challenge</h3>
+                <p>A manufacturing client needed to monitor equipment performance in real-time to prevent downtime and optimize operations. Their existing batch processing system couldn't provide timely insights.</p>
+                
+                <h3>Solution</h3>
+                <p>I architected and built a real-time analytics platform with these components:</p>
+                <ul>
+                    <li>Kafka for message queuing and data streaming</li>
+                    <li>Spark Streaming for real-time data processing</li>
+                    <li>Elasticsearch for fast data storage and retrieval</li>
+                    <li>Kibana dashboards for visualization</li>
+                    <li>Custom alerting system for anomaly detection</li>
+                </ul>
+                
+                <h3>Results</h3>
+                <p>The platform delivered significant benefits:</p>
+                <ul>
+                    <li>Near real-time insights with less than 5 seconds latency</li>
+                    <li>30% reduction in equipment downtime</li>
+                    <li>Predictive maintenance capabilities</li>
+                    <li>Customizable dashboards for different stakeholders</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <div class="project-tags">
+                    <span>Apache Kafka</span>
+                    <span>Spark Streaming</span>
+                    <span>Elasticsearch</span>
+                    <span>Kibana</span>
+                    <span>Docker</span>
+                    <span>Python</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projectDetail3" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Data Warehouse Migration</h2>
+                <img src="https://source.unsplash.com/random/1200x600?cloud" alt="Data Warehouse Architecture" style="width: 100%; margin-bottom: 20px; border-radius: 8px;">
+                <h3>Challenge</h3>
+                <p>The client was experiencing performance issues with their on-premise data warehouse. Query times were slow, maintenance was costly, and scaling was difficult.</p>
+                
+                <h3>Solution</h3>
+                <p>I led a team to migrate their warehouse to Snowflake with a focus on modernizing their data architecture:</p>
+                <ul>
+                    <li>Redesigned data models for cloud optimization</li>
+                    <li>Implemented ELT patterns to leverage Snowflake's compute</li>
+                    <li>Used dbt for transformation logic and documentation</li>
+                    <li>Created automated CI/CD pipelines for data transformations</li>
+                    <li>Implemented role-based access controls</li>
+                </ul>
+                
+                <h3>Results</h3>
+                <p>The migration delivered substantial improvements:</p>
+                <ul>
+                    <li>60% faster query performance</li>
+                    <li>30% reduction in operational costs</li>
+                    <li>Increased data freshness (from daily to hourly updates)</li>
+                    <li>Better governance and documentation</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <div class="project-tags">
+                    <span>Snowflake</span>
+                    <span>AWS</span>
+                    <span>Python</span>
+                    <span>dbt</span>
+                    <span>Terraform</span>
+                    <span>GitHub Actions</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projectDetail4" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Automated ETL Pipeline</h2>
+                <img src="https://source.unsplash.com/random/1200x600?automation" alt="ETL Pipeline" style="width: 100%; margin-bottom: 20px; border-radius: 8px;">
+                <h3>Challenge</h3>
+                <p>The client was manually processing data from multiple sources, leading to errors, delays, and inconsistent reporting. They needed an automated solution to standardize their data processes.</p>
+                
+                <h3>Solution</h3>
+                <p>I developed a comprehensive ETL pipeline using Apache Airflow:</p>
+                <ul>
+                    <li>Created dynamic DAGs for different data sources</li>
+                    <li>Implemented robust error handling and retry mechanisms</li>
+                    <li>Used AWS Glue for metadata management</li>
+                    <li>Applied data quality checks at multiple pipeline stages</li>
+                    <li>Built monitoring and alerting systems</li>
+                </ul>
+                
+                <h3>Results</h3>
+                <p>The automated pipeline delivered significant improvements:</p>
+                <ul>
+                    <li>85% reduction in manual effort</li>
+                    <li>40% faster data delivery</li>
+                    <li>Improved data quality with automated validation</li>
+                    <li>Complete audit trail for regulatory compliance</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <div class="project-tags">
+                    <span>Apache Airflow</span>
+                    <span>Python</span>
+                    <span>AWS Glue</span>
+                    <span>S3</span>
+                    <span>pandas</span>
+                    <span>Great Expectations</span>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
