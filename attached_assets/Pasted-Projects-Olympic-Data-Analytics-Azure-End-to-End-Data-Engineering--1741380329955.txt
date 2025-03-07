@@ -1,0 +1,25 @@
+Projects
+Olympic Data Analytics | Azure End-to-End Data Engineering                                                                                      Nov 2024 – Dec 2024
+
+●    Designed and deployed an Azure-based ETL pipeline ingesting 50+ years of historical Olympic data (20M+ records) from Azure Blob Storage, transforming it using Spark in Azure Databricks, and loading it into Azure Synapse Analytics for analysis. 
+●    Optimized data modeling by implementing a star schema in Synapse, reducing query runtime by 35% and enabling seamless integration with Power BI for stakeholder dashboards.
+
+
+
+YouTube Data Analytics Pipeline | AWS Data Lake & ETL                                                                                                                Oct 2023 – Nov 2023
+
+●    Designed a scalable AWS data pipeline ingesting 10,000+ daily trending videos (CSV/JSON) from Kaggle across 15+ regions, centralizing raw data in S3 and transforming it into analytics-ready formats using AWS Glue and Lambda.
+●    orchestrated serverless ETL workflows with AWS Glue, reducing data preparation time by 35% and partitioning data by region/category for efficient querying in Athena.
+
+
+Stock Market Real-Time Data Engineering Project                                                                          May 2023 - June 2023
+
+
+●    Built a real-time stock market data pipeline using Apache Kafka and AWS (EC2, S3, Glue, Athena) to process 10,000+ stock ticks/minute, enabling low-latency analytics for traders and investors.
+●    Deployed Kafka brokers on AWS EC2 for distributed data ingestion, achieving 99.9% uptime and fault tolerance during high-volume trading hours.
+
+
+Twitter Data Pipeline | End-to-End ETL with Airflow & AWS                                                                                                           Jan 2023 – Feb 2023
+
+●     Built an ETL pipeline to extract 10,000+ tweets/day using the Twitter API, transform raw JSON data using Python (pandas, regex), and load processed data into Amazon S3 for analytics.
+●    Orchestrated workflows with Apache Airflow deployed on AWS EC2, automating daily data ingestion and reducing manual intervention by 20 hours/month.
