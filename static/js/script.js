@@ -161,7 +161,7 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Play Netflix sound on home page
     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        const netflixSound = new Audio('https://www.voicy.network/Content/Clips/Sound/96d92445-638a-42f4-9610-d7b6a30cf42d.mp3');
+        const netflixSound = new Audio('https://www.101soundboards.com/storage/board_sounds_rendered/590222.mp3');
         netflixSound.volume = 0.5;
         netflixSound.play().catch(error => {
             console.log('Audio playback failed:', error);
