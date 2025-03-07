@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Vishnu's Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VISHNU</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="about-content">
+                <h1>About Me</h1>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="profile-image"></div>
+                    </div>
+                    <div class="about-text">
+                        <p>I'm Vishnu, a passionate Data Engineer with experience in building scalable data pipelines, cloud solutions, and analytics systems. I help organizations turn their data into valuable insights.</p>
+                        <p>With a background in computer science and expertise in modern data technologies, I've helped companies across various industries optimize their data infrastructure and extract meaningful information from complex datasets.</p>
+                        <a href="#" class="btn btn-primary">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Senior Data Engineer</h3>
+                        <h4>Company Name</h4>
+                        <ul>
+                            <li>Designed and implemented ETL processes using modern data tools</li>
+                            <li>Led migration of on-premise data warehouse to cloud platform</li>
+                            <li>Optimized data pipelines resulting in 40% performance improvement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Data Engineer</h3>
+                        <h4>Previous Company</h4>
+                        <ul>
+                            <li>Built real-time data processing systems using Kafka and Spark</li>
+                            <li>Implemented data quality monitoring frameworks</li>
+                            <li>Collaborated with data science team to deploy ML models</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 - 2019</div>
+                    <div class="timeline-content">
+                        <h3>Software Developer</h3>
+                        <h4>First Company</h4>
+                        <ul>
+                            <li>Developed backend services using Java and Spring Boot</li>
+                            <li>Implemented RESTful APIs for data exchange</li>
+                            <li>Participated in Agile development processes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Master's in Computer Science</h3>
+                <h4>University Name</h4>
+                <p class="education-date">2015 - 2017</p>
+                <p>Specialized in Data Engineering and Analytics</p>
+            </div>
+            <div class="education-item">
+                <h3>Bachelor's in Computer Science</h3>
+                <h4>University Name</h4>
+                <p class="education-date">2011 - 2015</p>
+            </div>
+        </section>
+
+        <section class="certifications">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>AWS Certified Data Analytics - Specialty</h3>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Google Cloud Professional Data Engineer</h3>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Azure Data Engineer Associate</h3>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Databricks Certified Developer</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2023 Vishnu. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
