@@ -196,6 +196,18 @@
         </div>
     </footer>
 
+    <audio id="netflixSound" src="{{ url_for('static', filename='Netflix-Intro-Sound-Effect.mp3') }}"></audio>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        window.onload = function() {
+            const audio = document.getElementById('netflixSound');
+            const startTime = localStorage.getItem('audioStartTime');
+            if (startTime) {
+                audio.currentTime = parseFloat(startTime);
+                audio.play();
+                localStorage.removeItem('audioStartTime');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,14 +1,19 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect
 
 app = Flask(__name__)
+app.secret_key = 'your-secret-key-here'  # Required for sessions
 
 @app.route('/')
 def opening():
+    if session.get('has_visited'):
+        return redirect('/home')
+    session['has_visited'] = True
     return render_template('opening.html')
 
 @app.route('/home')
 def home():
+    session['has_visited'] = True
     return render_template('index.html')
 
 @app.route('/about')
