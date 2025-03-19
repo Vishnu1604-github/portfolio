@@ -19,25 +19,41 @@
         }
         .netflix-text {
             color: #E50914;
-            font-size: 7vw;
+            font-size: 5vw;
             text-align: center;
             opacity: 0;
             animation: fadeIn 2s ease-in forwards;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Bebas Neue', sans-serif;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes zoomOutFade {
+            from { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            to { 
+                opacity: 0;
+                transform: scale(1.5);
+            }
+        }
+        .zoom-out {
+            animation: zoomOutFade 1.5s ease-out forwards;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body onclick="playAndRedirect()">
     <div class="netflix-text">VISHNU VARDHAN MANDULA</div>
-    <audio id="netflixSound" src="https://assets.mixkit.co/sfx/preview/mixkit-classic-short-notification-alert-666.mp3"></audio>
+    <audio id="netflixSound" src="/static/Netflix-Intro-Sound-Effect.mp3"></audio>
     <script>
         function playAndRedirect() {
+            const text = document.querySelector('.netflix-text');
             const audio = document.getElementById('netflixSound');
+            text.classList.add('zoom-out');
             audio.play();
             setTimeout(() => {
                 window.location.href = '/home';
