@@ -55,8 +55,6 @@
             const audio = document.getElementById('netflixSound');
             text.classList.add('zoom-out');
             audio.play();
-            // Store the current time of the audio
-            localStorage.setItem('audioStartTime', audio.currentTime);
             setTimeout(() => {
                 window.location.href = '/home';
             }, 1500);
