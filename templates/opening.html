@@ -48,7 +48,7 @@
 </head>
 <body onclick="playAndRedirect()">
     <div class="netflix-text">VISHNU VARDHAN MANDULA</div>
-    <audio id="netflixSound" src="/static/Netflix-Intro-Sound-Effect.mp3"></audio>
+    <audio id="netflixSound" src="{{ url_for('static', filename='Netflix-Intro-Sound-Effect.mp3') }}"></audio>
     <script>
         function playAndRedirect() {
             const text = document.querySelector('.netflix-text');
