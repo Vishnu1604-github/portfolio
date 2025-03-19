@@ -1,17 +1,15 @@
-# The command that runs the program. If the interpreter field is set, it will have priority and this run command will do nothing
 run = "python3 main.py"
 
 # The primary language of the repl. There can be others, though!
 language = "python3"
-entrypoint = "main.py"
 # A list of globs that specify which files and directories should
 # be hidden in the workspace.
 hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
-modules = ["python-3.8"]
+modules = ["python-3.8", "web", "nodejs-20"]
 
 # Specifies which nix channel to use when building the environment.
 [nix]
-channel = "stable-21_11"
+channel = "stable-24_05"
 
 [env]
 
@@ -51,3 +49,4 @@ externalPort = 80
 [deployment]
 deploymentTarget = "static"
 publicDir = "public"
+run = ["sh", "-c", "python3 main.py"]
