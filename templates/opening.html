@@ -53,10 +53,10 @@
             const text = document.querySelector('.netflix-text');
             const audio = document.getElementById('netflixSound');
             text.classList.add('zoom-out');
-            audio.play();
+            audio.play().catch(e => console.error('Audio playback failed:', e));
             setTimeout(() => {
                 window.location.href = '/home';
-            }, 1500);
+            }, 3000); // Increased delay to match sound duration
         }
     </script>
 </body>
